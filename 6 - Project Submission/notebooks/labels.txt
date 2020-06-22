@@ -1,0 +1,10 @@
+albacore
+australian_herring
+australian_salmon
+big eye tuna
+bream
+flathead
+flounder
+gurnard
+snapper
+yellowtail_kingfish

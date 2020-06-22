@@ -1,0 +1,38 @@
+<template>
+  <require from="app.css"></require>
+  <require from="nprogress.css"></require>
+  <require from="resources/elements/header"></require>
+  <require from="resources/elements/image-dropzone"></require>
+  <require from="resources/elements/classifications.html"></require>
+
+  <div class="container mx-auto">
+    <header></header>
+
+    <div class="text-center">
+      <button
+        class="font-bold mt-4 px-4 py-1 rounded text-white ${isModelLoaded ? 'pointer-events-none bg-indigo-900' : 'bg-indigo-600'}"
+        click.delegate="loadModel()"
+      >
+        <span if.bind="isModelLoading">
+          <i class="fas fa-circle-notch fa-spin"></i> Loading Model, This may take some time.
+        </span>
+        <span if.bind="!isModelLoading && !isModelLoaded">Load Model</span>
+        <span if.bind="isModelLoaded">Model Loaded</span>
+      </button>
+    </div>
+
+    <image-dropzone
+      show.bind="isModelLoaded"
+      classify-images.call="classifyImages(images)"
+      images-to-classify.bind="imagesToClassify"
+      is-classifying.bind="isClassifyingImages"
+    ></image-dropzone>
+
+    <div class="flex justify-center flex-wrap">
+      <classifications
+        repeat.for="prediction of results"
+        prediction.bind="prediction"
+      ></classifications>
+    </div>
+  </div>
+</template>
