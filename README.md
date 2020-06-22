@@ -1,5 +1,8 @@
 # Udacity - Machine Learning Engineer Nanodegree
 
+Notebooks located in "3 - Sagemaker" folder
+Application code located in app folder
+
 The notebooks were created to run on Amazons Sagemaker platform.
 
 Image dataset location. Image datasets were too large to include. These can be downloaded using links below.
